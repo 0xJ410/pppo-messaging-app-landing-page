@@ -1,7 +1,7 @@
 :root {
     --primary-color: #673ab6;
     --primary-color-light: rgba(103, 58, 182, 0.4);
-    --secondary-color: #e6e6e6;
+    --secondary-color: #e6e6e6; /* UPDATED from #f0a500 */
     --dark-bg: #1a1a2e;
     --light-text: #e0e0e0;
     --dark-text: #333;
@@ -31,7 +31,7 @@ html {
 header {
     background: rgba(26, 26, 46, 0.85);
     color: var(--light-text);
-    padding: 1rem 0;
+    padding: 0.8rem 0; /* Slightly reduced padding */
     position: fixed;
     width: 100%;
     top: 0;
@@ -53,14 +53,18 @@ nav {
     display: flex;
     align-items: center;
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    /* font-size set dynamically below using clamp in @media query for .logo span */
     font-weight: 700;
     color: var(--secondary-color);
-    z-index: 1001; /* Ensure logo is above mobile nav background */
+    z-index: 1001;
+}
+.logo span { /* Target the text part of the logo for dynamic font size */
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem); /* Dynamic font size */
 }
 
+
 .pnp-logo {
-    height: 40px;
+    height: clamp(30px, 6vw, 40px); /* Dynamic logo height */
     margin-right: 10px;
 }
 
@@ -71,7 +75,7 @@ nav {
 }
 
 .nav-links li {
-    margin-left: 25px;
+    margin-left: clamp(15px, 2vw, 25px); /* Dynamic margin */
 }
 
 .nav-links li a {
@@ -79,7 +83,8 @@ nav {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
-    padding: 0.5rem 0; /* Add some padding for better click area */
+    padding: 0.5rem 0;
+    font-size: clamp(0.9rem, 1.5vw, 1rem); /* Dynamic font size for desktop nav links */
 }
 
 .nav-links li a:hover {
@@ -88,12 +93,12 @@ nav {
 
 /* --- Hamburger Toggle Button --- */
 .nav-toggle {
-    display: none; /* Hidden on larger screens */
+    display: none;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
-    z-index: 1001; /* Ensure toggle is above mobile nav background */
+    z-index: 1001;
 }
 
 .hamburger {
@@ -126,9 +131,8 @@ nav {
     transform: translateY(8px);
 }
 
-/* Hamburger animation when nav is open */
 .nav-open .hamburger {
-    background: transparent; /* Middle bar disappears */
+    background: transparent;
 }
 
 .nav-open .hamburger::before {
@@ -145,7 +149,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 100px 5% 50px;
+    padding: 120px 5% 50px; /* Increased top padding for desktop */
     background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.95)), url('placeholder_bg.jpg') no-repeat center center/cover;
     text-align: left;
 }
@@ -157,14 +161,14 @@ nav {
 
 .hero-content h1 {
     font-family: var(--font-heading);
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3rem); /* Dynamic font size */
     margin-bottom: 1rem;
     color: #fff;
     line-height: 1.2;
 }
 
 .hero-content .subtitle {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem); /* Dynamic font size */
     margin-bottom: 2rem;
     color: var(--light-text);
 }
@@ -173,10 +177,10 @@ nav {
     display: inline-block;
     background: var(--primary-color);
     color: #fff;
-    padding: 12px 25px;
+    padding: clamp(10px, 1.8vw, 12px) clamp(20px, 3vw, 25px); /* Dynamic padding */
     text-decoration: none;
     border-radius: 5px;
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 2vw, 1.1rem); /* Dynamic font size */
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease;
     border: 2px solid var(--primary-color);
@@ -185,7 +189,7 @@ nav {
 .cta-button:hover {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
-    color: var(--dark-bg);
+    color: var(--dark-bg); /* Changed to dark-bg for better contrast with light secondary */
     transform: translateY(-3px);
 }
 
@@ -207,7 +211,7 @@ nav {
 }
 
 .content-section {
-    padding: 80px 20px;
+    padding: clamp(60px, 10vh, 80px) 20px; /* Dynamic vertical padding */
     max-width: 1000px;
     margin: 0 auto;
     text-align: center;
@@ -223,7 +227,7 @@ nav {
 
 .content-section h2 {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem); /* Dynamic font size */
     margin-bottom: 40px;
     color: var(--secondary-color);
     position: relative;
@@ -233,20 +237,20 @@ nav {
 .content-section h2::after {
     content: '';
     display: block;
-    width: 60px;
+    width: clamp(50px, 8vw, 60px); /* Dynamic width */
     height: 3px;
     background: var(--primary-color);
     margin: 10px auto 0;
 }
 
 #about p {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem); /* Dynamic font size */
     margin-bottom: 1.5rem;
     color: var(--light-text);
     text-align: left;
 }
 #about .project-title-info {
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem); /* Dynamic font size */
     font-style: italic;
     color: #aaa;
     margin-top: 2rem;
@@ -257,13 +261,13 @@ nav {
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    gap: clamp(20px, 3vw, 30px); /* Dynamic gap */
     margin-top: 20px;
 }
 
 .feature-item {
     background: var(--card-bg);
-    padding: 25px;
+    padding: clamp(20px, 3vw, 25px); /* Dynamic padding */
     border-radius: 8px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -276,26 +280,26 @@ nav {
 }
 
 .feature-item i {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 4vw, 2.5rem); /* Dynamic icon size */
     color: var(--primary-color);
     margin-bottom: 15px;
 }
 
 .feature-item h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1.3rem, 2.5vw, 1.5rem); /* Dynamic font size */
     margin-bottom: 10px;
     color: var(--secondary-color);
 }
 
 .feature-item p {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 1.8vw, 1rem); /* Dynamic font size */
     color: var(--light-text);
 }
 
 #app-preview {
     background-color: var(--card-bg);
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: clamp(40px, 8vh, 60px); /* Dynamic padding */
+    padding-bottom: clamp(40px, 8vh, 60px); /* Dynamic padding */
 }
 
 .preview-gallery {
@@ -303,7 +307,7 @@ nav {
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: clamp(15px, 2.5vw, 20px); /* Dynamic gap */
     margin-top: 30px;
 }
 
@@ -360,7 +364,7 @@ nav {
     color: #ccc;
     padding: 10px 0;
     height: 50px;
-    font-size: 1.1em;
+    font-size: clamp(0.9em, 1.8vw, 1.1em); /* Dynamic font size */
 }
 
 .close-modal {
@@ -368,7 +372,7 @@ nav {
     top: 15px;
     right: 35px;
     color: #f1f1f1;
-    font-size: 40px;
+    font-size: clamp(30px, 5vw, 40px); /* Dynamic font size */
     font-weight: bold;
     transition: 0.3s;
 }
@@ -381,7 +385,7 @@ nav {
 }
 
 #contact p {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem); /* Dynamic font size */
     margin-bottom: 1rem;
 }
 
@@ -389,9 +393,9 @@ footer {
     background: #111122;
     color: #aaa;
     text-align: center;
-    padding: 20px 0;
+    padding: clamp(15px, 3vh, 20px) 0; /* Dynamic padding */
     margin-top: 40px;
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem); /* Dynamic font size */
 }
 
 @keyframes slideInFromLeft {
@@ -406,39 +410,43 @@ footer {
 
 /* --- Responsive adjustments --- */
 @media (max-width: 768px) {
+    header {
+        padding: 0.6rem 0; /* Slightly adjust header padding for mobile */
+    }
     .nav-toggle {
-        display: block; /* Show hamburger on smaller screens */
+        display: block;
     }
 
     .nav-links {
-        position: absolute;
-        background: var(--dark-bg); /* Same as body or slightly different */
+        position: fixed; /* Changed from absolute for full viewport coverage */
+        background: var(--dark-bg);
         opacity: 0.98;
-        top: 0; /* Align with top of header */
+        top: 0;
         left: 0;
         width: 100%;
-        height: 100vh; /* Full viewport height */
+        height: 100vh;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 2rem; /* Space out links */
-        transform: translateX(100%); /* Hidden off-screen to the right */
+        gap: 1.5rem; /* Reduced gap for smaller font */
+        transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
-        padding-top: 5rem; /* Account for header height */
+        padding-top: 0; /* Fullscreen, no specific padding needed if centered */
+        z-index: 999; /* Below header content like logo/toggle but above page */
     }
 
-    .nav-links.nav-open { /* Style for when mobile nav is open */
+    .nav-links.nav-open {
         transform: translateX(0);
     }
 
     .nav-links li {
         margin-left: 0;
-        opacity: 0; /* For staggered animation */
+        opacity: 0;
     }
-    
-    .nav-links.nav-open li { /* Animate links appearing */
+
+    .nav-links.nav-open li {
         opacity: 1;
-        transition: opacity 0.3s ease-in-out 0.15s; /* Staggered delay */
+        transition: opacity 0.3s ease-in-out 0.15s;
     }
     .nav-links.nav-open li:nth-child(2) { transition-delay: 0.2s; }
     .nav-links.nav-open li:nth-child(3) { transition-delay: 0.25s; }
@@ -447,40 +455,43 @@ footer {
 
 
     .nav-links li a {
-        font-size: 1.5rem; /* Larger text for mobile nav */
+        font-size: clamp(1.1rem, 4vw, 1.3rem); /* Dynamic font size for mobile nav */
         color: var(--light-text);
     }
     .nav-links li a:hover {
         color: var(--secondary-color);
     }
 
-    /* Original responsive adjustments for other sections */
-    /* Removed nav flex-direction: column; from here as it's handled by nav-links now */
-    .logo {
-        margin-bottom: 0; /* Reset margin if previously set for stacking */
-        font-size: 1.3rem;
+    .logo span {
+        font-size: clamp(1rem, 4vw, 1.3rem); /* Adjust logo text on mobile */
     }
+    .pnp-logo {
+        height: clamp(28px, 5vw, 35px); /* Adjust logo image on mobile */
+    }
+
 
     #hero {
         flex-direction: column;
         text-align: center;
-        padding-top: 80px; /* Adjust if header height changed */
+        padding-top: 100px; /* INCREASED to push content below fixed header */
+                               /* This value might need to be header height + some margin */
+                               /* Or, more robustly, calculate header height with JS and set margin/padding */
     }
     .hero-content, .hero-image {
         max-width: 90%;
         margin-bottom: 30px;
     }
     .hero-image img {
-        max-height: 60vh;
+        max-height: 55vh; /* Adjusted for mobile */
     }
     .hero-content h1 {
-        font-size: 2.2rem;
+        font-size: clamp(1.8rem, 6vw, 2.2rem); /* Dynamic */
     }
     .hero-content .subtitle {
-        font-size: 1rem;
+        font-size: clamp(0.9rem, 3vw, 1rem); /* Dynamic */
     }
     .content-section h2 {
-        font-size: 2rem;
+        font-size: clamp(1.6rem, 5vw, 2rem); /* Dynamic */
     }
 
     .preview-gallery {
@@ -492,14 +503,20 @@ footer {
 }
 
 @media (max-width: 480px) {
+    header {
+        padding: 0.5rem 0;
+    }
+    #hero {
+        padding-top: 90px; /* Further adjustment for very small screens */
+    }
     .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: clamp(1.5rem, 7vw, 1.8rem); /* Dynamic */
     }
     .features-grid {
         grid-template-columns: 1fr;
     }
      .hero-image img {
-        max-height: 50vh;
+        max-height: 45vh; /* Adjusted for very small screens */
     }
     .preview-image {
         width: clamp(200px, 80%, 300px);
@@ -507,5 +524,14 @@ footer {
     .modal-content {
         max-width: 95%;
         max-height: 80vh;
+    }
+    .nav-links li a {
+        font-size: clamp(1rem, 5vw, 1.2rem); /* Further adjust mobile nav font */
+    }
+    .logo span {
+        font-size: clamp(0.9rem, 4.5vw, 1.1rem); /* Further adjust logo text */
+    }
+    .pnp-logo {
+        height: clamp(25px, 5.5vw, 30px);
     }
 }
