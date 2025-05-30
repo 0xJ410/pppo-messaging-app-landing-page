@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNP-Irawan Secure Messenger | Official</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo.png" alt="PNP Logo" class="pnp-logo">
+                <span>PNP-Irawan Secure Messenger</span>
+            </div>
+            <!-- HAMBURGER ICON FOR MOBILE -->
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#app-preview">Preview</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Secure Communication, Reinvented for PNP-Irawan.</h1>
+                <p class="subtitle">Advanced AES & PBKDF2 encryption with temporary data handling, ensuring operational integrity and confidentiality.</p>
+                <a href="#features" class="cta-button">Discover Features</a>
+            </div>
+            <div class="hero-image">
+                <img src="images/ss.jpg" alt="Secure Communication Concept">
+            </div>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2>About The Thesis Application</h2>
+            <p>In an era where digital communication is paramount, the security of sensitive information for law enforcement agencies like the PNP-Irawan is critical. Standard messaging platforms often present vulnerabilities, risking data breaches and compromising operations.</p>
+            <p>The <strong>PNP-Irawan Secure Messenger</strong> is a capstone project developed to address these challenges head-on. It's a dedicated messaging system built with cutting-edge security protocols to protect every piece of information exchanged by personnel.</p>
+            <p class="project-title-info">This thesis, titled <em>"A SECURE MESSAGING SYSTEM USING AES AND PBKDF2 WITH TEMPORARY DATA HANDLING FOR PNP-IRAWAN"</em>, was developed by Jhon Luke Q. Cutay, Lawrence Adrian A. Sabenacio, and Jamaica Ruth G. Zabanal, under the advisement of Francis A. Alterado, for Fullbright College.</p>
+        </section>
+
+        <section id="features" class="content-section">
+            <h2>Core Security Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Ironclad Encryption</h3>
+                    <p>Utilizes AES-256 and PBKDF2 for military-grade security of your messages and files, encrypted on a per-conversation basis.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-user-secret"></i>
+                    <h3>Temporary Data Handling</h3>
+                    <p>Messages are stored locally on user devices and automatically deleted from servers post-delivery, minimizing server-side risk.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-fingerprint"></i>
+                    <h3>Multi-Factor & Adaptive Security</h3>
+                    <p>Robust authentication with password or fingerprint biometrics, plus an bypass mechanism that balances security with user convenience via customizable security levels.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-comments"></i>
+                    <h3>Per-Conversation Control</h3>
+                    <p>Each conversation can have unique security settings, ensuring granular control over sensitive communications.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>User-Focused Design</h3>
+                    <p>An intuitive interface designed for ease of use by all PNP personnel, ensuring quick adoption and efficient communication.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-server"></i>
+                    <h3>Reliable Backend</h3>
+                    <p>Powered by Google Firebase for secure authentication, real-time notifications, and message routing.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="app-preview" class="content-section">
+            <h2>Application Preview</h2>
+            <div class="preview-gallery">
+                <img src="images/sss1.jpg" alt="Application Introduction" class="preview-image">
+                <img src="images/sss2.jpg" alt="Application Introduction" class="preview-image">
+                <img src="images/sss3.jpg" alt="Inbox Preview" class="preview-image">
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <h2>Contact Information</h2>
+            <p>For inquiries regarding this Capstone Project, please contact the project proponents or adviser through Fullbright College, Department of Information Technology.</p>
+            <p><strong>Location:</strong> Fullbright College, Mangga Street, Km.5, National Highway, Brgy. San Jose, Puerto Princesa City, Palawan</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024-2025 PNP-Irawan Secure Messenger Project Team | Fullbright College. All rights reserved.</p>
+    </footer>
+
+    <div id="imageModal" class="modal">
+        <span class="close-modal">×</span>
+        <img class="modal-content" id="zoomedImage">
+        <div id="caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
